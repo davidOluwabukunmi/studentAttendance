@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
 
@@ -27,6 +28,7 @@ public class Attendance {
     @JoinColumn(name = "course_id", nullable = false)
     private Course course;
 
+    @CreationTimestamp
     @Column(nullable = false)
     private LocalDate date;
 

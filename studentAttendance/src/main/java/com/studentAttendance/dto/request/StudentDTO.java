@@ -1,7 +1,5 @@
-package com.studentAttendance.model;
+package com.studentAttendance.dto.request;
 
-
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,15 +9,10 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Data
-@Entity
-@Table(name = "student")
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
-public class Student {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class StudentDTO {
     private String firstName;
     private String lastName;
     private String email;
@@ -29,8 +22,5 @@ public class Student {
     private String level;
     private String phoneNumber;
     private LocalDate dateOfBirth;
-
-    @ManyToMany(mappedBy = "students")
-    private List<Course> courses;
-
+    private List<Long> courseIds;
 }
